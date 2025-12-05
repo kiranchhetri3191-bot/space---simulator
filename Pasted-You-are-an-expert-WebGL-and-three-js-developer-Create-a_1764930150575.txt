@@ -1,0 +1,124 @@
+You are an expert WebGL and three.js developer. 
+Create a COMPLETE interactive 3D web app (HTML + CSS + JavaScript in one project) that runs in the browser.
+
+GOAL:
+A realistic-looking SPACE SIMULATOR where I can:
+- View a SOLAR SYSTEM
+- Zoom out to see the whole MILKY WAY GALAXY
+- Focus on BLACK HOLES (with accretion disk effects)
+- Control camera, time speed, and what is visible
+- Customize colors, sizes, speeds in a simple way
+
+TECH:
+- Use three.js (via CDN) for 3D rendering.
+- Use standard HTML/CSS for UI (no frameworks).
+- Make sure it runs smoothly on a normal laptop.
+
+SCENE REQUIREMENTS:
+
+1. GENERAL SPACE LOOK
+- Dark starfield background (stars as particles + a background texture).
+- Slight nebula / dust effect in the galaxy view to make space look rich.
+- Add soft lighting so planets and objects feel 3D and not flat.
+
+2. SOLAR SYSTEM MODE
+- A star (the Sun) with glow.
+- At least 8 planets with:
+  - Correct relative ORDER (Mercury → Neptune).
+  - Different sizes and colors (not physically perfect but believable).
+  - Circular or slightly elliptical orbits.
+- Simple orbit physics:
+  - Use basic circular motion (don’t need full realistic N-body physics, but motion should LOOK smooth and natural).
+- Add some moons (e.g., Earth’s moon, Jupiter’s major moon) orbiting planets.
+- Show orbit paths as faint circles.
+
+3. GALAXY / MILKY WAY MODE
+- When I zoom out / switch mode:
+  - Show a spiral galaxy (top view) made of many glowing particles representing stars.
+  - Spiral arms rotating slowly around the center.
+- At the center, place a SUPER MASSIVE BLACK HOLE:
+  - Black sphere with:
+    - Accretion disk (glowing disk of particles or textured ring rotating very fast).
+    - Subtle gravitational lensing effect if possible (or fake it with shaders/textures).
+- Option to place a few smaller black holes elsewhere in the galaxy visible as dark centers with small glowing disks.
+
+4. BLACK HOLE FOCUS
+- Add a button or toggle to "Focus on Black Hole":
+  - Camera smoothly moves to orbit around the central black hole.
+  - Time speed increases for accretion disk rotation.
+  - Dim surrounding lights slightly to make the black hole area more dramatic.
+
+CONTROLS (VERY IMPORTANT):
+
+Implement controls using JavaScript + basic HTML UI:
+
+- Camera:
+  - Mouse drag to rotate.
+  - Mouse wheel to zoom in/out.
+  - Right-click or middle mouse to pan.
+  - OR use OrbitControls from three.js.
+
+- Modes (buttons or toggles on screen):
+  - "Solar System View"
+  - "Galaxy View"
+  - "Focus Black Hole"
+
+- Time Control:
+  - Slider: time speed (e.g. 0x – 5x).
+  - Button: Play/Pause motion.
+
+- Object Visibility Toggles:
+  - Checkbox: show/hide orbit paths.
+  - Checkbox: show/hide labels (planet names, black holes, etc.).
+  - Checkbox: show/hide starfield background.
+
+CUSTOMIZATION PANEL:
+
+Create a simple UI panel on one side of the screen where I can easily tweak values in code later. 
+Provide CLEAR COMMENTS in the JS file for these variables:
+
+- Planet size multiplier.
+- Planet orbit speed multiplier.
+- Galaxy rotation speed.
+- Black hole accretion disk color.
+- Background star brightness.
+- Number of stars in galaxy.
+
+Make it easy to change these by editing a CONFIG object, like:
+
+const CONFIG = {
+  planetSizeMultiplier: 1.0,
+  orbitSpeedMultiplier: 1.0,
+  galaxyRotationSpeed: 0.1,
+  accretionDiskColor: 0xffaa00,
+  starBrightness: 1.0,
+  galaxyStarCount: 5000,
+};
+
+VISUAL QUALITY:
+- Use smooth animations with requestAnimationFrame.
+- Enable antialiasing for the renderer.
+- Add a subtle bloom/glow/post-processing effect if possible, but keep performance in mind.
+- Make the UI look clean and modern with simple CSS (no ugly default buttons).
+
+CODE STRUCTURE:
+- index.html: basic layout with canvas + UI controls.
+- style.css: styling for full-screen 3D canvas and control panel.
+- main.js: all three.js setup and logic.
+- Organize JS code into functions:
+  - initScene()
+  - initSolarSystem()
+  - initGalaxy()
+  - initBlackHole()
+  - initUI()
+  - animate()
+- Comment the code well so I can understand and customize objects easily.
+
+EXTRA DETAILS:
+- Add labels (small sprites or HTML overlays) for key objects: Sun, Earth, Milky Way Center, Black Hole.
+- Make camera transitions between modes smooth with tweening (if you use a tween library, load it via CDN).
+
+Finally:
+- Make sure the project runs immediately when I click “Run” in Replit.
+- Do NOT leave TODOs. Implement all features in a finished, working way.
+-
