@@ -1,8 +1,9 @@
 import "@fontsource/inter";
-import { SpaceSimulator } from "./components/space/SpaceSimulator"; // if you used export function
+import SpaceSimulator from "./components/space/SpaceSimulator";
+// If your file uses export function SpaceSimulator instead of export default,
+// then change the line above to:
+// import { SpaceSimulator } from "./components/space/SpaceSimulator";
 
-function App() {
-  return <SpaceSimulator />;
+export default function App() {
+  return <SpaceSimulator />;
 }
-
-export default App;
